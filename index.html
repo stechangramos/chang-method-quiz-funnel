@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Are Already Paying For This Pattern — The Chang Method</title>
+<meta name="description" content="Every week you keep guessing costs you sleep, focus, and energy you cannot get back. Six questions, ninety seconds, and you will know exactly which pattern you are in and exactly what to do about it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="quiz-shell">
+
+  <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+  <!-- INTRO -->
+  <section class="screen" id="screen-intro" data-screen>
+    <h1 class="eyebrow">The Chang Method</h1>
+    <h2 class="headline">You Are Already Paying For This Pattern. You Just Do Not Know Which One It Is Yet.</h2>
+    <p class="subhead">Every week you keep guessing costs you sleep, focus, and energy you cannot get back. Six questions, ninety seconds, and you will know exactly which pattern you are in and exactly what to do about it.</p>
+    <button class="btn btn-primary" id="startBtn" type="button">Find My Pattern</button>
+    <p class="fineprint">6 questions. 90 seconds total.</p>
+  </section>
+
+  <!-- QUESTIONS (templated by JS) -->
+  <section class="screen" id="screen-question" data-screen hidden>
+    <p class="q-count" id="qCount"></p>
+    <h2 class="q-text" id="qText"></h2>
+    <div class="q-options" id="qOptions"></div>
+  </section>
+
+  <!-- EMAIL GATE -->
+  <section class="screen" id="screen-email" data-screen hidden>
+    <h2 class="headline">Your Result Is Ready</h2>
+    <p class="subhead">Enter your email and we'll show you exactly what your body's been telling you.</p>
+    <form id="emailForm" class="email-form">
+      <input type="email" id="emailInput" name="email" placeholder="you@email.com" required autocomplete="email">
+      <button class="btn btn-primary" type="submit" id="emailSubmitBtn">Show My Result</button>
+    </form>
+    <p class="fineprint">No spam. Just your result and what to do about it.</p>
+  </section>
+
+  <!-- RESULT (templated by JS) -->
+  <section class="screen" id="screen-result" data-screen hidden>
+    <p class="eyebrow" id="resultEyebrow"></p>
+    <h2 class="headline" id="resultHeadline"></h2>
+    <p class="result-body" id="resultBody"></p>
+    <a class="btn btn-cta" id="resultPrimaryCta" href="#" target="_blank" rel="noopener"></a>
+    <p class="fineprint" id="resultSecondaryText"></p>
+    <a class="btn btn-secondary" id="resultSecondaryCta" href="#" target="_blank" rel="noopener"></a>
+  </section>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
