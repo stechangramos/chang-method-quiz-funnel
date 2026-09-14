@@ -40,7 +40,7 @@ html, body {
 .progress-fill {
   height: 100%;
   width: 0%;
-  background: var(--orange);
+  background: var(--plum);
   transition: width 0.3s ease;
 }
 
@@ -64,7 +64,7 @@ html, body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 13px;
-  color: var(--plum);
+  color: var(--orange);
   margin: 0;
 }
 
@@ -73,7 +73,7 @@ html, body {
   font-weight: 500;
   line-height: 1.15;
   margin: 0;
-  font-size: 34px;
+  font-size: 38px;
   color: var(--navy);
 }
 
@@ -133,19 +133,21 @@ html, body {
 
 .q-option {
   text-align: left;
-  border: 1px solid rgba(34, 48, 80, 0.2);
+  border: 1px solid rgba(34, 48, 80, 0.12);
   background: #fff;
   color: var(--navy);
   padding: 16px 18px;
-  border-radius: 10px;
+  border-radius: 14px;
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.4;
   cursor: pointer;
-  transition: border-color 0.15s ease, transform 0.1s ease;
+  box-shadow: 0 2px 8px rgba(34, 48, 80, 0.08);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 .q-option:hover {
   border-color: var(--plum);
+  box-shadow: 0 4px 12px rgba(34, 48, 80, 0.12);
 }
 .q-option:active {
   transform: scale(0.99);
@@ -165,7 +167,7 @@ html, body {
   width: 100%;
 }
 .btn-primary {
-  background: var(--navy);
+  background: var(--plum);
   color: var(--cream);
 }
 .btn-cta {
@@ -188,12 +190,13 @@ html, body {
 }
 .email-form input {
   padding: 16px 18px;
-  border-radius: 10px;
-  border: 1px solid rgba(34, 48, 80, 0.25);
+  border-radius: 14px;
+  border: 1px solid rgba(34, 48, 80, 0.15);
   font-family: var(--font-body);
   font-size: 16px;
   background: #fff;
   color: var(--navy);
+  box-shadow: 0 2px 8px rgba(34, 48, 80, 0.08);
 }
 
 .fineprint {
@@ -210,5 +213,5 @@ html, body {
 }
 
 @media (max-width: 480px) {
-  .headline, .q-text { font-size: 27px; }
+  .headline, .q-text { font-size: 30px; }
 }
