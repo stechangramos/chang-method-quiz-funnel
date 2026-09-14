@@ -84,6 +84,37 @@ html, body {
   margin: 0;
 }
 
+.landing-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.landing-divider {
+  height: 1px;
+  background: rgba(34, 48, 80, 0.12);
+  margin: 4px 0;
+}
+
+.emphasis-line {
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0;
+}
+
+.cost-list {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(34, 48, 80, 0.85);
+}
+
 .q-count {
   font-size: 13px;
   font-weight: 600;
