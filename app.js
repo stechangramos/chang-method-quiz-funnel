@@ -244,10 +244,14 @@ function renderResult() {
 }
 
 // --- Wire up entry points ---
-document.getElementById("startBtn").addEventListener("click", () => {
-  currentQuestionIndex = 0;
-  setProgress(0);
-  renderQuestion(QUESTIONS[0], 0, QUESTIONS.length);
+// Landing screen has more than one "Find My Pattern" trigger (hero card,
+// mobile stacked block, bottom of the cost-list) — all fire the same start.
+document.querySelectorAll(".start-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    currentQuestionIndex = 0;
+    setProgress(0);
+    renderQuestion(QUESTIONS[0], 0, QUESTIONS.length);
+  });
 });
 
 document.getElementById("emailForm").addEventListener("submit", async (e) => {
