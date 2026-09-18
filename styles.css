@@ -18,6 +18,26 @@ html, body {
   min-height: 100%;
 }
 
+.site-footer {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 24px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(34, 48, 80, 0.12);
+}
+.site-footer p {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: rgba(34, 48, 80, 0.65);
+}
+.site-footer a {
+  color: var(--navy);
+  font-weight: 600;
+}
+.site-footer .fineprint {
+  margin: 0;
+}
+
 .quiz-shell {
   max-width: 640px;
   margin: 0 auto;
