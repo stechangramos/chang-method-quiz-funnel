@@ -192,12 +192,13 @@ function onAnswer(letter) {
 
   setProgress(1);
   showScreen("email");
-  document.getElementById("emailInput").focus();
+  document.getElementById("nameInput").focus();
 }
 
-async function submitLead(email) {
+async function submitLead(name, email) {
   const result = RESULTS[finalResultKey];
   const payload = {
+    name,
     email,
     source: "quiz-funnel",
     form: "chang-method-nervous-system-quiz",
@@ -256,11 +257,12 @@ document.querySelectorAll(".start-btn").forEach((btn) => {
 
 document.getElementById("emailForm").addEventListener("submit", async (e) => {
   e.preventDefault();
+  const name = document.getElementById("nameInput").value.trim();
   const email = document.getElementById("emailInput").value.trim();
-  if (!email) return;
+  if (!name || !email) return;
   const submitBtn = document.getElementById("emailSubmitBtn");
   submitBtn.disabled = true;
   submitBtn.textContent = "Loading...";
-  await submitLead(email);
+  await submitLead(name, email);
   renderResult();
 });

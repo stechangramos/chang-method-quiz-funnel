@@ -59,8 +59,9 @@
   <!-- EMAIL GATE -->
   <section class="screen" id="screen-email" data-screen hidden>
     <h2 class="headline">Your Result Is Ready</h2>
-    <p class="subhead">Enter your email and we'll show you exactly what your body's been telling you.</p>
+    <p class="subhead">Enter your name and email and we'll show you exactly what your body's been telling you.</p>
     <form id="emailForm" class="email-form">
+      <input type="text" id="nameInput" name="name" placeholder="Your name" required autocomplete="name">
       <input type="email" id="emailInput" name="email" placeholder="you@email.com" required autocomplete="email">
       <button class="btn btn-primary" type="submit" id="emailSubmitBtn">Show My Result</button>
     </form>
