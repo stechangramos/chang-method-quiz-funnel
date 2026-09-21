@@ -7,8 +7,15 @@
 // the shared crm_capture_key never ships in client-side JS — it lives only in
 // that function's Pages secret, server-side.
 const CAPTURE_ENDPOINT = "/api/submit";
-const MOVE_FIRST_URL = "https://checkout.schangramos.com/system-map-u7"; // provisional, Stephanie says this will be replaced
-const FREE_VIDEO_URL = "https://youtu.be/PieFfelZNWY"; // provisional, Stephanie says this will be replaced
+// Ladder confirmed 2026-09-21: Quiz -> One-Breath Break -> $10 book -> Move First.
+// BOOK_CHECKOUT_URL is null on purpose — Simon confirmed 2026-09-21 there is no
+// payment processor wired up anywhere in this business yet (not a copy-paste
+// miss). The old MOVE_FIRST_URL below was live in production pointing at
+// checkout.schangramos.com/system-map-u7, which turned out to be a dead
+// template checkout for an unrelated $7 "System Map" product with no working
+// pay button — real quiz traffic was being sent to a broken page. Pulled it.
+const BOOK_CHECKOUT_URL = null; // PENDING: set once Simon reports a live checkout link
+const BREATH_URL = "https://breath.schangramos.com"; // live, verified 2026-09-20
 
 const QUESTIONS = [
   {
@@ -104,16 +111,19 @@ const RESULTS = {
   },
 };
 
-// All four results share one routing pattern (locked 2026-09-13): Move First
-// primary, Free Video secondary. See PLANS/chang-method for the routing history.
+// All four results share one routing pattern (ladder confirmed 2026-09-21):
+// $10 book primary, free One-Breath Break secondary. Identical across all
+// four results — Depleted no longer needs a special-cased flip now that the
+// primary ask is $10, not a program (Lalie, 2026-09-21).
 function primaryCta() {
-  return { label: "Start Move First for $100", url: MOVE_FIRST_URL };
+  if (!BOOK_CHECKOUT_URL) return null; // no live checkout yet — hide, don't link to a dead page
+  return { label: "Get the book, $10", url: BOOK_CHECKOUT_URL };
 }
 function secondaryCta() {
   return {
-    text: "Not ready to commit? Start with the Method Map, the free video that names the framework before you spend anything.",
-    label: "Get The Method Map",
-    url: FREE_VIDEO_URL,
+    text: "Not ready yet? Start with the free One-Breath Break.",
+    label: "Start the One-Breath Break",
+    url: BREATH_URL,
   };
 }
 
@@ -232,8 +242,13 @@ function renderResult() {
 
   const primary = primaryCta();
   const primaryEl = document.getElementById("resultPrimaryCta");
-  primaryEl.textContent = primary.label;
-  primaryEl.href = primary.url;
+  if (primary) {
+    primaryEl.textContent = primary.label;
+    primaryEl.href = primary.url;
+    primaryEl.style.display = "";
+  } else {
+    primaryEl.style.display = "none";
+  }
 
   const secondary = secondaryCta();
   document.getElementById("resultSecondaryText").textContent = secondary.text;
