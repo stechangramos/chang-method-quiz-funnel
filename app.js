@@ -8,13 +8,11 @@
 // that function's Pages secret, server-side.
 const CAPTURE_ENDPOINT = "/api/submit";
 // Ladder confirmed 2026-09-21: Quiz -> One-Breath Break -> $10 book -> Move First.
-// BOOK_CHECKOUT_URL is null on purpose — Simon confirmed 2026-09-21 there is no
-// payment processor wired up anywhere in this business yet (not a copy-paste
-// miss). The old MOVE_FIRST_URL below was live in production pointing at
-// checkout.schangramos.com/system-map-u7, which turned out to be a dead
-// template checkout for an unrelated $7 "System Map" product with no working
-// pay button — real quiz traffic was being sent to a broken page. Pulled it.
-const BOOK_CHECKOUT_URL = null; // PENDING: set once Simon reports a live checkout link
+// Stephanie provided a live Stripe Payment Link 2026-09-22, wired here to the
+// book sales page (has context/testimonials before the ask) rather than
+// straight to Stripe. Swap for https://book.schangramos.com once that custom
+// domain is registered (see chang-method-book repo).
+const BOOK_CHECKOUT_URL = "https://chang-method-book.pages.dev/";
 const BREATH_URL = "https://breath.schangramos.com"; // live, verified 2026-09-20
 
 const QUESTIONS = [
