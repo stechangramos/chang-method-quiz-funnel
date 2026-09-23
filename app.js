@@ -12,7 +12,7 @@ const CAPTURE_ENDPOINT = "/api/submit";
 // book sales page (has context/testimonials before the ask) rather than
 // straight to Stripe. Swap for https://book.schangramos.com once that custom
 // domain is registered (see chang-method-book repo).
-const BOOK_CHECKOUT_URL = "https://chang-method-book.pages.dev/";
+const BOOK_CHECKOUT_URL = "https://herownwoman.schangramos.com/";
 const BREATH_URL = "https://breath.schangramos.com"; // live, verified 2026-09-20
 
 const QUESTIONS = [
